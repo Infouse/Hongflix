@@ -1,0 +1,140 @@
+.detailPage{
+  width: 100%;
+  background-color: black;
+  height: 100%;
+  .banner{
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 50vh;
+    width: 100%;
+    &::before{
+      background-color: rgba(0,0,7, .6 );
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    &::after{
+      background-image: linear-gradient(0deg,#0f0f0f,transparent);
+      content: '';
+      height: 100px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+  }
+  .contentBox{
+    max-width: 1300px;
+    margin: -200px auto 0 auto;
+    position: relative;
+    display: flex;
+
+    .posterBox{
+      min-width: 300px;
+      max-width: 450px;
+      img{
+        width: 100%;
+        border-radius: 20px;
+      }
+    }
+    .textBox{
+      padding-left: 60px;
+      .contentTitle{
+      font-size: 60px;
+      }
+      .genresBox{
+        display: flex;
+        gap: 24px;
+        .detailCate{
+          background-color: #0f0f0f;
+          border: 2px solid white;
+          padding: 8px 2rem;
+          border-radius: 20px;
+          display: block;
+          margin-top: 20px;
+        }
+
+      }
+      .overviewText{
+        font-size: 16px;;
+        font-weight: 400;
+        margin-top: 40px;
+        display: block;
+        margin-bottom: 20px;
+      }
+    }
+    .imgContainer{
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 40px;
+      .imgBox{
+        width: 100%;
+        &>img{
+          width: 100%;
+          border-radius: 12px;
+        }
+    }
+      &>span{
+        display: block;
+      }
+    }
+  }
+  .videosContainer{
+    margin-top: 120px;
+    width: 100%;
+    padding: 0 2rem;
+    .videosText{
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 32px;
+    }
+    .videoWrapper{
+      position: relative;
+      padding-bottom: 56.25%; 
+      height: 0;
+      overflow: hidden;
+      .videoBox{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+    }
+  }
+  .sorry{
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .similarContainer{
+  padding: 0 32px;
+    .similarText{
+      font-size: 32px;
+      margin-top: 120px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .similarList{
+      width: 100%;
+      height: 360px;
+      cursor: pointer;
+      &>img{
+        width: 100%; 
+        height: 100%;
+        border-radius: 20px;
+      }
+    }
+    .similarTitle{
+      margin-top: 20px;
+      display: block;
+    }
+  }
+}
