@@ -34,7 +34,6 @@ const MovieList = () => {
     if (pageNum > 1) {
       dataCtrl({type:'movie'})
       dataCtrl({type:'tv'})
-      dataCtrl({type:'movieDetail'})
     }
   }, [state,pageNum])
 
@@ -44,7 +43,7 @@ const MovieList = () => {
     naviGate('/movielist',{state:'search'})
   }
   
-
+  console.log(state)
   return (
     <div className='listBg'>
       {
@@ -117,7 +116,7 @@ const MovieList = () => {
       </ul>
       {
         state === "tv" || state === "movies" ?<button className="moreBtn" onClick={()=>setPageNum()}>더보기</button> :
-        <span></span> 
+        null
       } 
     </div>
   )

@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import {Main} from './pages/Main';
 import MovieList from './pages/movieList';
-import TvList from './pages/tvList';
 import Header from './componet/Header';
 import Footer from './componet/Footer';
 import DeTail from './pages/deTail';

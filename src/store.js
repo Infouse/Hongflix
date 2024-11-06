@@ -5,7 +5,6 @@ const instance = axios.create({
   baseURL : 'https://api.themoviedb.org/3',
   params : {
     api_key : "f89a6c1f22aca3858a4ae7aef10de967",
-    // language : "ko-kr",
     } 
 })
 
@@ -47,7 +46,7 @@ const store = create((set,get) => ({
   }),
   
   setPageNum: () => set((state) => ({
-    pageNum: state.pageNum + 1
+    pageNum: state.pageNum + 1,
   })),
   resetPageNum: () => set({ pageNum: 1 }),
 
@@ -89,8 +88,10 @@ const store = create((set,get) => ({
           moviePage : [...state.moviePage, ...res.data.results,]
         }))
         break;
+        
       case 'tv' : 
         res = await instance.get("/tv/top_rated",{params : {page : pageNum}})
+        console.log(pageNum)
         set((state)=>({
           tvPage : [...state.tvPage, ...res.data.results]
         }))
@@ -100,13 +101,11 @@ const store = create((set,get) => ({
         res = await instance.get(`/movie/${movieId}`,{
           params : {append_to_response : "videos,images,casts"}
         });
-        console.log(123455);
-        
         set({
           movieDetailPage : res.data
         })
         break;
-
+        
       case 'tvDetail' : 
         res = await instance.get(`/tv/${tvId}`,{
           params : {append_to_response : "videos,images,casts,aggregate_credits"}
@@ -115,8 +114,6 @@ const store = create((set,get) => ({
           tvDetailPage : res.data
         })
       break;
-      default:
-        throw new Error(`Unhandled action type: ${action.type}`);
       
       case 'similar' :
         const id = movieId || tvId;
@@ -125,6 +122,9 @@ const store = create((set,get) => ({
         set({
           similar : res.data.results
         }) 
+        break;
+        default:
+          throw new Error(`Unhandled action type: ${action.type}`)
     }   
   }
 }))
