@@ -78,7 +78,7 @@ const tvGate = (itemid)=>{
       }
       </Swiper>
     {/* Search 시작 */}
-      <h2 className='mainStartTitle'>영화 검색</h2>
+      <h2 className='mainStartTitle'>Movie Search</h2>
       <div className='mainSearchBox'>
         <input 
         type='text' 
@@ -94,8 +94,7 @@ const tvGate = (itemid)=>{
       </div>
       {/* 리스트 시작 */}
       <div className='movieTvList'>
-        <div
-        className='movieListBox'>
+        <div className='movieListBox'>
           <h2>Trending Movies</h2>
           <Link className='movieListLink' to='/movieList' state="movies">View more</Link>
         </div>
